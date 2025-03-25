@@ -79,11 +79,9 @@ function renderEnd(gameIsOver) {
       }, 1000);
       break;
   }
-  board.forEach(row =>
-    row.forEach(tile => {
-      if (tile.hasMine) tile.status = TILE_STATUSES.MINE;
-    })
-  );
+  board.flat().forEach(tile => {
+    if (tile.hasMine) tile.status = TILE_STATUSES.MINE;
+  });
   modalOverlay.classList.add("active");
 }
 
