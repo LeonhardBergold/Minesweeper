@@ -48,7 +48,7 @@ function openTile(tile, board, openedWithClick) {
   } else {
     tile.status = TILE_STATUSES.OPEN;
     getAdjacentTiles(tile, board).forEach(adjacentTile => {
-      openTile(adjacentTile, board);
+      openTile(adjacentTile, board, false);
     });
   }
 }
