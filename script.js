@@ -3,7 +3,7 @@ import { TILE_STATUSES, createBoard, getAdjacentTiles, checkForWinOrLoss } from 
 const BOARD_SIZE = 10;
 const MINE_NUMBER = 8;
 
-let board = createBoard(BOARD_SIZE, MINE_NUMBER);
+let board = [];
 
 const introduction = document.querySelector("[data-introduction]");
 const boardGrid = document.querySelector("[data-board-grid]");
@@ -16,6 +16,7 @@ introduction.classList.add("active");
 loadBoard();
 
 function loadBoard() {
+  board = createBoard(BOARD_SIZE, MINE_NUMBER);
   boardGrid.innerHTML = "";
   boardGrid.style.setProperty("--size", BOARD_SIZE);
   const boardGridFragment = document.createDocumentFragment();
@@ -86,7 +87,6 @@ function renderEnd(gameIsOver) {
 }
 
 function restartGame() {
-  board = createBoard(BOARD_SIZE, MINE_NUMBER);
   loadBoard();
   modalContainerWin.classList.remove("active");
   modalContainerLose.classList.remove("active");
